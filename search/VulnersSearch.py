@@ -1,6 +1,7 @@
-import os, json, re
-import vulners
 import configparser
+import re
+
+import vulners
 
 
 def search(sign):
@@ -27,3 +28,6 @@ def search(sign):
         return arr
     else:
         return []
+r = search('/backupmgt/localJob.php')
+for d in r.keys():
+    print(d)

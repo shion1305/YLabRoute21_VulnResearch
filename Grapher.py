@@ -30,7 +30,8 @@ def visualizeTimeData(records, starting, ending, period=7 * 24 * 60 * 60, title=
     # x軸に何を記述するかはx_axisで指定する。
     if x_axis == 'hour':
         for i in range(len(result)):
-            x.append(datetime.datetime.utcfromtimestamp(starting + period * i).astimezone(tz=None).strftime("%m/%d %H:%M~"))
+            x.append(
+                datetime.datetime.utcfromtimestamp(starting + period * i).astimezone(tz=None).strftime("%m/%d %H:%M~"))
     else:
         for i in range(len(result)):
             x.append(datetime.datetime.utcfromtimestamp(starting + period * i).astimezone(tz=None).strftime("%m/%d~"))
@@ -43,7 +44,7 @@ def visualizeTimeData(records, starting, ending, period=7 * 24 * 60 * 60, title=
     plt.bar(x, y)
     plt.xticks(rotation=90)
     if title == '': title = str(getTimeStrNow())
-    title = title.replace('/', '-')
+    title = filenameFormat(title)
     if loc == '': loc = str(getTimeStrNow())
     location = os.getcwd() + '\\' + 'graphs\\' + loc
     if not Path(location).exists():

@@ -14,10 +14,3 @@ def readList(loc):
     f = open(loc, "rb")
     list = pickle.load(f)
     return list
-
-
-def filenameFormat(filename, replaceWith='-'):
-    invalid = '<>:"/\|?*'
-    for char in invalid:
-        filename = filename.replace(char, replaceWith)
-    return filename
