@@ -2,6 +2,8 @@ import json
 import time
 from concurrent import futures
 
+import elastic_transport
+import simpleaudio
 from elasticsearch import Elasticsearch
 
 
@@ -38,18 +40,24 @@ def exportDaily(year, month, day):
 
 
 def exportAllData(start=211001, end=211231):
-    t = [int(str(start)[:2]), int(str(start)[2:4]), start % 100]
-    e = [int(str(end)[:2]), int(str(end)[2:4]), end % 100]
-    while t[0] * 16 + t[1] <= e[0] * 16 + e[1]:
-        for i in range(t[2] if int(str(start)[:2]) == t[0] and int(str(start)[2:4]) == t[1] else 1,
-                       e[2] + 1 if t[0] == e[0] and t[1] == e[1] else getDays_in_Month(t[0] * 100 + t[1]) + 1):
-            exportDaily(year=t[0], month=t[1], day=i)
-            time.sleep(30)
-        if t[1] == 12:
-            t[1] = 1
-            t[0] += 1
-        else:
-            t[1] += 1
+    try:
+        t = [int(str(start)[:2]), int(str(start)[2:4]), start % 100]
+        e = [int(str(end)[:2]), int(str(end)[2:4]), end % 100]
+        while t[0] * 16 + t[1] <= e[0] * 16 + e[1]:
+            for i in range(t[2] if int(str(start)[:2]) == t[0] and int(str(start)[2:4]) == t[1] else 1,
+                           e[2] + 1 if t[0] == e[0] and t[1] == e[1] else getDays_in_Month(t[0] * 100 + t[1]) + 1):
+                exportDaily(year=t[0], month=t[1], day=i)
+                time.sleep(30)
+            if t[1] == 12:
+                t[1] = 1
+                t[0] += 1
+            else:
+                t[1] += 1
+    except elastic_transport.ConnectionTimeout:
+        while(True):
+            wav = simpleaudio.WaveObject.from_wave_file("alarm_sound.wav")
+            playO = wav.play()
+            playO.wait_done()
 
 
 def getDays_in_Month(t):
@@ -59,4 +67,4 @@ def getDays_in_Month(t):
     return d[t % 20 - 1]
 
 
-exportAllData(start=211114, end=211231)
+exportAllData(start=211210, end=211231)
