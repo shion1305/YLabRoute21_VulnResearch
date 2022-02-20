@@ -8,7 +8,6 @@ from elasticsearch import Elasticsearch
 
 
 def exportJson(target, year, month, day):
-    json_string = json.dumps(target)
     with open('ImportedData/data20%02d-%02d%02d.json' % (year, month, day), 'w') as outfile:
         json.dump(target, outfile)
     print('COMPLETED: ImportedData/data20%02d-%02d%02d.json' % (year, month, day))
