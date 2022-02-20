@@ -2,13 +2,23 @@ def groupByDestIp(data):
     """Collect only ip"""
     result = {}
     for d in data:
-        geo_ip = d['_source']['destination_ip']
+        destination_ip = d['_source']['destination_ip']
         # もしもgeo_ipがresultフィールドになかった場合
-        if not geo_ip in result:
-            result[geo_ip] = []
-        result[geo_ip].append(d)
+        if not destination_ip in result:
+            result[destination_ip] = []
+        result[destination_ip].append(d)
     return result
 
+def groupBySouceIp(data):
+    """Collect only ip"""
+    result = {}
+    for d in data:
+        source_ip = d['_source']['source_ip']
+        # もしもgeo_ipがresultフィールドになかった場合
+        if not source_ip in result:
+            result[source_ip] = []
+        result[source_ip].append(d)
+    return result
 
 def groupBySignature(data):
     dic = {}
